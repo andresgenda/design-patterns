@@ -35,3 +35,7 @@ This will create a docker image using the `Dockerfile` with the image name `YOUR
 Run container
 
     >docker run YOUR_NAME
+
+# Patrones de diseño implementados
+- Command: Archivo print_report.py
+- Strategy: Archivo report.py
