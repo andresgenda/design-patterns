@@ -8,25 +8,26 @@ class Report():
 
 class HTMLReport:
 
-    def create_report(self, rides):
-        html_report = web_report.create_content(rides)
+    def create_report(self, rides, headers):
+        html_report = web_report.create_content(rides, headers)
         web_report.create_file(html_report)
 
 class PrintReport:
 
-    def create_report(self, rides):
+    def create_report(self, rides, headers):
         service = print_report.PrintReport()
 
-        createContent = print_report.CreateContentCommand(rides, service)
+        createContent = print_report.CreateContentCommand(rides, service, headers)
         myContent = createContent.execute()
         createFile = print_report.CreateFileCommand(myContent, service)
         createFile.execute()
 
 class CreateReport:
 
-    def __init__(self, strategy, rides):
+    def __init__(self, strategy, rides, headers):
         self.strategy = strategy
         self.rides = rides
+        self.headers = headers
 
     def create_report(self):
-        return self.strategy.create_report(self.rides)
+        return self.strategy.create_report(self.rides, self.headers)

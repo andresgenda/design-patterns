@@ -1,8 +1,8 @@
 from patterns.csv_utils import Ride
 
 
-def create_content(rides):
-    builder = [_create_headers("Taxi Report"), _create_table_headers()]
+def create_content(rides, headers):
+    builder = [_create_headers("Taxi Report"), _create_table_headers(headers)]
     for ride in rides:
         builder.append(_add_ride(ride))
     builder.append(_close_table_headers())
@@ -19,22 +19,20 @@ def _create_headers(title: str):
     return f"<h1>{title}</h1>"
 
 
-def _create_table_headers():
-    return """
-    <table>
-        <tr>
-            <th> TaxiID </th>
-            <th> Pickup time </th>
-            <th> Dropoff time </th>
-            <th> Passenger count </th>
-            <th> Trip Distance </th>
-            <th> Total amount </th>
-        </tr>
-    """
-
-
 def _close_table_headers():
     return "</table>"
+
+
+def _create_table_headers(headers):
+    headers_with_tag = ""
+    for header in headers:
+        headers_with_tag += ("<td>" + header + "</td>")
+    return "".join([
+        "<table>",
+        "<tr>",
+        headers_with_tag,
+        "</tr>"
+    ])
 
 
 def _add_ride(ride):
