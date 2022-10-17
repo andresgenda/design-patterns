@@ -39,3 +39,8 @@ Run container
 # Patrones de diseño implementados
 - Command: Archivo print_report.py
 - Strategy: Archivo report.py
+
+# Principios SOLID
+- SRP (Single Responsibility Principle)
+- OCP (Open Close Principle)
+- ISP (Interface Segregation Principle)
