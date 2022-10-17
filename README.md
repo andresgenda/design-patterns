@@ -41,6 +41,9 @@ Run container
 - Strategy: Archivo report.py
 
 # Principios SOLID
-- SRP (Single Responsibility Principle)
-- OCP (Open Close Principle)
-- ISP (Interface Segregation Principle)
+- SRP (Single Responsibility Principle) - print_report.py Línea 20
+Dentro de la clase PrintReport en la línea 20 se encuentran tres distintas funciones que son diferentes entre sí y cada una tiene un propósito distinto; la primera función se encarga de hacer el formateo de las cantidades, la segunda se encarga de generar el contenido y la tercera se encarga de crear el archivo.
+- OCP (Open Close Principle) - report.py Línea 25
+Dentro de este archivo es posible generar nuevo código sin alterar la funcionalidad del que ya existe o sin la necesidad de cambiar el código actual.
+- ISP (Interface Segregation Principle) - main.py Línea 10
+Cada parte del código esta dividida en partes pequeñas, por lo que para realizar una función en específica solo se tiene que llamar a la función deseada, de tal manera que no se ejecute código innecesario.
